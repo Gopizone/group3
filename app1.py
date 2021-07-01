@@ -25,7 +25,7 @@ def classify_utterance(utt):
     loaded_vectorizer = joblib.load(Path.joinpath(artifacts_path,'vectorizer.pickle'))
 
     # load the model
-    loaded_model = load_model(Path.joinpath(artifacts_path,'classification.model'))
+    loaded_model = load_model(Path.joinpath(artifacts_path,'classification.h5'))
 
     # make a prediction
     return(loaded_model.predict(loaded_vectorizer.transform([utt])))
