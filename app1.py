@@ -117,6 +117,6 @@ want to discuss poker in a comment."</font>
         st.success('{}'.format(result))
    
     if __name__=='__main__':
-    main()
+main()
     
     
