@@ -21,7 +21,7 @@ artifacts_path = Path.joinpath(Path.cwd(),'model_artifacts')
 #@app.route('/predict',methods=["Get"])
 def classify_utterance(utt):
     # load the vectorizer
-    loaded_vectorizer = joblib.load(Path.joinpath(artifacts_path,'vectorizer.pickle'))
+    loaded_vectorizer = load_model(Path.joinpath(artifacts_path,'vectorizer.pickle'))
 
     # load the model
     loaded_model = load_model(Path.joinpath(artifacts_path,'classification.model'))
@@ -116,7 +116,7 @@ want to discuss poker in a comment."</font>
     
         st.success('{}'.format(result))
    
-if __name__=='__main__':
+    if __name__=='__main__':
     main()
     
     
