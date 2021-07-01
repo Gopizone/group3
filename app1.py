@@ -5,6 +5,8 @@ import pandas as pd
 #from flasgger import Swagger
 import streamlit as st 
 from PIL import Image
+from tensorflow.keras.models import load_model
+import joblib
 
 #app=Flask(__name__)
 #Swagger(app)
@@ -14,13 +16,15 @@ from PIL import Image
 def welcome():
     return "Welcome All"
 
+artifacts_path = Path.joinpath(Path.cwd(),'model_artifacts')
+
 #@app.route('/predict',methods=["Get"])
 def classify_utterance(utt):
     # load the vectorizer
-    loaded_vectorizer = pickle.load(open('vectorizer.pickle', 'rb'))
+    loaded_vectorizer = joblib.load(Path.joinpath(artifacts_path,'vectorizer.pickle'))
 
     # load the model
-    loaded_model = pickle.load(open('classification.model', 'rb'))
+    loaded_model = load_model(Path.joinpath(artifacts_path,'classification.model'))
 
     # make a prediction
     return(loaded_model.predict(loaded_vectorizer.transform([utt])))
