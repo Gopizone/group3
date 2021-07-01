@@ -8,7 +8,7 @@ from PIL import Image
 from tensorflow.keras.models import load_model
 import joblib
 from pathlib import Path
-import SessionState
+#import SessionState
 #app=Flask(__name__)
 #Swagger(app)
 
