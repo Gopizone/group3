@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 import numpy as np
 import pickle
+import sklearn 
 import pandas as pd
 #from flasgger import Swagger
 import streamlit as st 
