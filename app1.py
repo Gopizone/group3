@@ -4,9 +4,7 @@ import pickle
 import pandas as pd
 #from flasgger import Swagger
 import streamlit as st 
-from sklearn.feature_extraction.text import CountVectorizer
 from PIL import Image
-count_vect = CountVectorizer()
 
 #app=Flask(__name__)
 #Swagger(app)
@@ -19,10 +17,10 @@ def welcome():
 #@app.route('/predict',methods=["Get"])
 def classify_utterance(utt):
     # load the vectorizer
-    loaded_vectorizer = pickle.load(open('C:\\Users\\smile\\Desktop\\PROJECT\\Fmodel\\vectorizer.pickle', 'rb'))
+    loaded_vectorizer = pickle.load(open('vectorizer.pickle', 'rb'))
 
     # load the model
-    loaded_model = pickle.load(open('C:\\Users\\smile\\Desktop\\PROJECT\\Fmodel\\classification.model', 'rb'))
+    loaded_model = pickle.load(open('classification.model', 'rb'))
 
     # make a prediction
     return(loaded_model.predict(loaded_vectorizer.transform([utt])))
